@@ -1,0 +1,10 @@
+pytest
+requests
+boto3
+python-dotenv
+kafka-python
+strawberry-graphql
+fastapi
+uvicorn
+playwright
+pytest-playwright
