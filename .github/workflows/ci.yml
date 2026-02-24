@@ -61,7 +61,7 @@ jobs:
 
       - name: Start dashboard server
         run: |
-          python3 -m http.server 3000 --directory services/dashboard &
+          python3 -m http.server 3000 --directory services/dashboards &
           sleep 3
 
       - name: Verify server running
@@ -69,7 +69,7 @@ jobs:
 
       - name: Run UI tests
         env:
-          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          URL = "http://localhost:3000"
         run: |
           cd playwright_api_tests
           pytest test_dashboards_ui.py -v
