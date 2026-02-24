@@ -86,4 +86,5 @@ jobs:
       - name: Build Docker image
         run: docker build -t vop-local-api ./local_api
 
-      - name: Verify i
+      - name: Verify image
+        run: docker images vop-local-api
