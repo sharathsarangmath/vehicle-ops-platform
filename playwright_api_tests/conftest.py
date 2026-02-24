@@ -1,5 +1,6 @@
 import pytest
 from pages.api_client import VehicleAPIClient
+from pages.dashboard_page import DashboardPage
 
 API_BASE_URL = "https://6pu7wjaw9d.execute-api.us-east-1.amazonaws.com/dev"
 
@@ -66,3 +67,8 @@ def multiple_alert_payload():
         "lat":5.6332,
         "lon":6.3423
     }
+
+
+@pytest.fixture
+def dashboard(page):
+    return DashboardPage(page)
