@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vop-api
+  labels:
+    app: vop-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vop-api
+  template:
+    metadata:
+      labels:
+        app: vop-api
+    spec:
+      containers:
+      - name: vop-api
+        image: vop-local-api:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
+        env:
+        - name: APP_STATUS
+          value: "healthy"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
