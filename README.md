@@ -3,6 +3,8 @@
 A cloud-native vehicle telemetry platform built to demonstrate 
 senior QA engineering skills across AWS, Docker, Kafka, and Kubernetes.
 
+[![VOP CI Pipeline](https://github.com/sharathsarangmath/vehicle-ops-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/sharathsarangmath/vehicle-ops-platform/actions/workflows/ci.yml)
+
 ## Architecture
 ```
 Postman/Tests → API Gateway → Lambda → SQS → DynamoDB
